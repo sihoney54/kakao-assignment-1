@@ -1,0 +1,230 @@
+/* 기본 스타일 초기화 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f8fa;
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* 메인 앱 컨테이너 */
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+/* 날짜 네비게이션 스타일 */
+.date-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+#current-date-display {
+    font-size: 16px;
+    font-weight: 600;
+    color: #672be0;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding: 5px 10px;
+}
+
+.nav-btn:hover {
+    color: #672be0;
+}
+
+/* 입력창 및 추가 버튼 영역 */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 2px solid #e1e4e8;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#todo-input:focus {
+    border-color: #672be0;
+}
+
+#add-btn {
+    padding: 14px 24px;
+    background-color: #672be0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+#add-btn:hover {
+    background-color: #5523b8;
+}
+
+/* 에러 메시지 스타일 */
+#error-msg {
+    color: #e02b2b;
+    font-size: 13px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    display: none;
+}
+
+#error-msg.visible {
+    display: block;
+}
+
+/* 필터 탭 스타일 영역 */
+.filter-container {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 0;
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #888888;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: #672be0;
+}
+
+.tab-btn.active {
+    color: #672be0;
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #672be0;
+}
+
+/* 할 일 목록 스타일 */
+#todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.todo-item span {
+    flex: 1;
+    font-size: 15px;
+    word-break: break-all;
+    margin-right: 15px;
+}
+
+.todo-item.completed span {
+    text-decoration: line-through;
+    color: #a0a0a0;
+}
+
+/* 인라인 수정 입력창 스타일 */
+.edit-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid #672be0;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    margin-right: 15px;
+}
+
+/* 버튼 그룹 및 개별 버튼 스타일 */
+.btn-group {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-group button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-group button:hover {
+    opacity: 0.8;
+}
+
+.complete-btn, .save-btn {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.edit-btn {
+    background-color: #fff8e1;
+    color: #f57f17;
+}
+
+.delete-btn, .cancel-btn {
+    background-color: #ffebee;
+    color: #c62828;
+}
