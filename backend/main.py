@@ -7,8 +7,15 @@ from sqlalchemy.orm import sessionmaker, Session
 from typing import Optional
 from pydantic import BaseModel
 
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # DB 설정
-DATABASE_URL = "sqlite:///./todos.db"
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./todos.db")
+
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
@@ -50,6 +57,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 app = FastAPI(title="Todo API")
 
@@ -123,3 +131,5 @@ def delete_todo(id: int, db: Session = Depends(get_db)):
     db.delete(db_todo)
     db.commit()
     return None
+
+
